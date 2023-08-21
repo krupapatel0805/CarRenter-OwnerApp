@@ -5,20 +5,16 @@ import { useNavigation } from '@react-navigation/native';
 import { auth } from '../Firebase/FirebaseConfig'
 import { signOut } from 'firebase/auth'
 
-const LogoutButton = ({}) => {
+const LogoutButton = () => {
   const navigation = useNavigation();
 
   const handleLogout = async () => {
-    try{
-        if(auth.currentUser === null){
-            alert("Logout Pressed: There is no user to logout !")
-        }else{
-            await signOut(auth)
-            navigation.navigate('SignIn')
-        }
-    }catch(err){
-        console.log(err)
-    }  
+    if(auth.currentUser === null){
+        alert("Logout Pressed: There is no user to logout !")
+    }else{
+        await signOut(auth)
+        navigation.navigate('Login')
+    }
   };
 
   return (

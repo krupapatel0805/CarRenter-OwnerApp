@@ -1,9 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ListingScreen from './ListingScreen';
-import BookingScreen from './BookingScreen';
-import { AntDesign } from '@expo/vector-icons'; 
-import { Feather } from '@expo/vector-icons'; 
-
+import SearchScreen from './SearchScreen';
+import ReservationDetails from './ReservationDetails';
+import { FontAwesome } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator()
 
@@ -14,14 +12,16 @@ const HomeScreen = () => {
       "tabBarInactiveTintColor" : "black",
       "tabBarStyle" : [{"display": "flex"}, null]
       })}>
-        <Tab.Screen component={ListingScreen} name="Listing" options={{
+        <Tab.Screen component={SearchScreen} name="Search" 
+        options={{
             tabBarIcon: ({ color }) => (
-              <AntDesign name="car" size={24} color={color} />
+              <FontAwesome name="search" size={20} color={color} />
             ),
           }}/>
-        <Tab.Screen component={BookingScreen} name="Booking" options={{
+        <Tab.Screen component={ReservationDetails} name="Reservations"
+        options={{
             tabBarIcon: ({ color }) => (
-              <Feather name="bookmark" size={24} color={color} />
+              <FontAwesome name="calendar" color={color} size={20} />
             ),
           }}/>
       </Tab.Navigator>  
